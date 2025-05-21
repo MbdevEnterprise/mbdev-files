@@ -2,443 +2,154 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Tech Files Download Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background: #111;
-            color: #eee;
-            font-family: 'Segoe UI', 'Roboto', monospace, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background: linear-gradient(90deg, #0f2027, #2c5364);
-            padding: 0.25rem 0;
-            text-align: center;
-            box-shadow: 0 2px 8px #000a;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            color: #00ffe7;
-            text-shadow: 0 0 10px #00ffe7aa;
-            margin: 0;
-        }
-
-        main {
-            max-width: 700px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: #181a1b;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px #0008;
-        }
-
-        .file-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .file-list li {
-            background: #23272b;
-            margin-bottom: 1.2rem;
-            padding: 1.2rem;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: background 0.2s;
-            border: 1px solid #00ffe7;
-            border-left: 10px solid #00ffe7;
-        }
-
-        .file-list li:hover {
-            background: #2c3136;
-        }
-
-        .file-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .file-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: #00ffe7;
-            margin-bottom: 0.2rem;
-        }
-
-        .file-desc {
-            font-size: 12px;
-            color: #aaa;
-        }
-
-        .download-btn {
-            background: #00ffe7;
-            color: #111;
-            border: none;
-            padding: 0.7rem 1.3rem;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 2px 8px #00ffe755;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .download-btn:hover {
-            background: #00bfae;
-            color: #fff;
-        }
-
-        @media (max-width: 600px) {
-            main {
-                padding: 1rem;
-            }
-
-            .file-list li {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .download-btn {
-                margin-top: 0.7rem;
-                width: 100%;
-            }
-        }
-
-        .audio-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px;
-            margin: 0;
-            background-color: #181a1b;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-        }
-
-        .custom-audio-player {
-            background-color: #2c3136;
-            padding: 5px 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #00ffe7;
-            width: 90%;
-            border: 1px solid #00ffe7;
-            border-radius: 12px;
-        }
-
-        .controls {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            height: 30px;
-            gap: 1rem;
-        }
-
-        .btn {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #00ffe7;
-            transition: color 0.2s;
-        }
-
-        .btn:hover {
-            color: #00bfae;
-        }
-
-        .progress-container {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            gap: 0.5rem;
-        }
-
-        input[type="range"] {
-            flex: 1;
-            appearance: none;
-            height: 5px;
-            border-radius: 5px;
-            background: #333;
-            outline: none;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            appearance: none;
-            width: 14px;
-            height: 14px;
-            background: #00ffe7;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .item-container {
-            display: flex;
-            align-items: center;
-            width: 100%;
-        }
-
-        .right {
-            width: 100%;
-        }
-
-        .img-item {
-            width: 100px;
-            height: 100px;
-            border-radius: 15px;
-            margin-right: 30px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Tech Files Download Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
-    <header>
+  <header style="justify-content: center;">
+    <h1>MBDEV FILES</h1>
+    <button class="burger-menu" style="display: none;" onclick="openMenu()">☰</button>
+    </button>
+  </header>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content slide-in">
+      <header style="display: flex;flex-direction: row;background: transparent;box-shadow: none;">
         <h1>MBDEV FILES</h1>
-        <p style="color:#aaa; margin-top:0.5rem;">
-            El mejor software y aplicaciones disponibles aquí.
-        </p>
-    </header>
-
-    <div class="audio-container">
-        <div class="custom-audio-player">
-            <audio id="audio" preload="metadata">
-                <source src="https://dl.dropboxusercontent.com/scl/fi/juroub2gsgwd5jfk5a2t2/ProyectoHipermedia.mp3?rlkey=qaavs3wwkkxmvejm5q04ufo2x&st=ij3rl03w" type="audio/mpeg">
-                Tu navegador no soporta el elemento de audio.
-            </audio>
-            <div class="controls">
-                <button id="playPause" class="btn">⊳</button>
-                <div class="progress-container">
-                    <span id="currentTime">0:00</span>
-                    <input type="range" id="progress" value="0" step="0.01">
-                    <span id="duration">0:00</span>
-                </div>
-            </div>
-        </div>
+        <button class="burger-menu" onclick="closeMenu()">
+          ☰
+        </button>
+      </header>
+      <ul>
+        <a href="">Compartir</a>
+        <a href="">Contact Me</a>
+        <a href="">Give feedback</a>
+        <a href="">Donar</a>
+      </ul>
     </div>
-    
+  </div>
 
-    <main>
-        <ul class="file-list">
-            <li>
-                <div class="item-container">
-                    <div class="left">
-                        <img class="img-item" src="/img/deezer.png" alt="deezer">
-                    </div>
-                    <div class="right">
-                        <div class="file-info">
-                            <span class="file-name">Deezer Premium</span>
-                            <span class="file-desc">Version: 7.0.5.56 <br>Type: APK <br>Size: 38.4 MB</span>
-                        </div>
-                        <a href="https://www.mediafire.com/file/b1d5035uch5mcgm/Deezer_Premium_v7.0.5.56.apk/file"
-                            data-dropbox="https://dl.dropboxusercontent.com/scl/fi/oicfgin8pm5jlv5jaly8b/Deezer_Premium_v7.0.5.56.apk?rlkey=s326vh5lmndl8jg7on1di0c5y&st=wdjcaznn&dl=1"
-                            target="_blank" class="download-link">
-                            <button class="download-btn" type="button">Download</button>
-                        </a>
-                    </div>
-                </div>
-            </li>
+  <div class="audio-container">
+    <div class="custom-audio-player">
+      <audio id="audio" preload="metadata">
+        <source
+          src="https://dl.dropboxusercontent.com/scl/fi/juroub2gsgwd5jfk5a2t2/ProyectoHipermedia.mp3?rlkey=qaavs3wwkkxmvejm5q04ufo2x&st=ij3rl03w"
+          type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+      <div class="controls">
+        <button id="playPause" class="btn">⊳</button>
+        <div class="progress-container">
+          <span id="currentTime">0:00</span>
+          <input type="range" id="progress" value="0" step="0.01">
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            <li>
-                <div class="item-container">
-                    <div class="left">
-                        <img class="img-item" src="/img/spotify.png" alt="spotify">
-                    </div>
-                    <div class="right">
-                        <div class="file-info">
-                            <span class="file-name">Spotify Premium</span>
-                            <span class="file-desc">Version: 9.0.44.478 <br>Type: APK <br>Size: 117 MB</span>
-                        </div>
-                        <a href="https://www.mediafire.com/file/hx6fa9cip5sp7ef/Spotify_Premium_v9.0.44.478.apk/file"
-                            data-dropbox="https://dl.dropboxusercontent.com/scl/fi/i7v6yt3ez8o87adiksztb/Spotify_Premium_v9.0.44.478.apk?rlkey=pwp75pdqbp4d055hahrbvsm0u&st=scoe0ptu&dl=1"
-                            target="_blank" class="download-link">
-                            <button class="download-btn" type="button">Download</button>
-                        </a>
-                    </div>
-                </div>
-            </li>
+  <main>
+    <ul class="file-list">
+      <li>
+        <div class="item-container">
+          <div class="left">
+            <img class="img-item" src="/img/deezer.png" alt="deezer">
+          </div>
+          <div class="right">
+            <div class="file-info">
+              <span class="file-name">Deezer Premium</span>
+              <span class="file-desc">Version: 7.0.5.56 <br>Type: APK <br>Size: 38.4 MB</span>
+            </div>
+            <a href="https://www.mediafire.com/file/b1d5035uch5mcgm/Deezer_Premium_v7.0.5.56.apk/file"
+              data-dropbox="https://dl.dropboxusercontent.com/scl/fi/oicfgin8pm5jlv5jaly8b/Deezer_Premium_v7.0.5.56.apk?rlkey=s326vh5lmndl8jg7on1di0c5y&st=wdjcaznn&dl=1"
+              target="_blank" class="download-link">
+              <button class="download-btn" type="button">Download</button>
+            </a>
+          </div>
+        </div>
+      </li>
 
-            <li>
-                <div class="item-container">
-                    <div class="left">
-                        <img class="img-item" src="/img/minecraft.png" alt="minecraft">
-                    </div>
-                    <div class="right">
-                        <div class="file-info">
-                            <span class="file-name">Minecraft PE</span>
-                            <span class="file-desc">Version: 1.0.5 <br>Type: APK <br>Size: 58.6 MB</span>
-                        </div>
-                        <a href="https://www.dropbox.com/scl/fi/3elfw2amctmd9fzfqlhhp/Minecraft-PE-v1.0.5.apk?rlkey=usr9ep7mpic27aay0zb5lfrlj&st=40733ggj&dl=0"
-                            data-dropbox="https://dl.dropboxusercontent.com/scl/fi/3elfw2amctmd9fzfqlhhp/Minecraft-PE-v1.0.5.apk?rlkey=usr9ep7mpic27aay0zb5lfrlj&st=40733ggj&dl=1"
-                            target="_blank" class="download-link">
-                            <button class="download-btn" type="button">Download</button>
-                        </a>
-                    </div>
-                </div>
-            </li>
+      <li>
+        <div class="item-container">
+          <div class="left">
+            <img class="img-item" src="/img/spotify.png" alt="spotify">
+          </div>
+          <div class="right">
+            <div class="file-info">
+              <span class="file-name">Spotify Premium</span>
+              <span class="file-desc">Version: 9.0.44.478 <br>Type: APK <br>Size: 117 MB</span>
+            </div>
+            <a href="https://www.mediafire.com/file/hx6fa9cip5sp7ef/Spotify_Premium_v9.0.44.478.apk/file"
+              data-dropbox="https://dl.dropboxusercontent.com/scl/fi/i7v6yt3ez8o87adiksztb/Spotify_Premium_v9.0.44.478.apk?rlkey=pwp75pdqbp4d055hahrbvsm0u&st=scoe0ptu&dl=1"
+              target="_blank" class="download-link">
+              <button class="download-btn" type="button">Download</button>
+            </a>
+          </div>
+        </div>
+      </li>
 
-            <li>
-                <div class="item-container">
-                    <div class="left">
-                        <img class="img-item" src="/img/mood-play.png" alt="mood-play">
-                    </div>
-                    <div class="right">
-                        <div class="file-info">
-                            <span class="file-name">Mood Play</span>
-                            <span class="file-desc">Version: 3.0.0 <br>Type: APK <br>Size: 42.6 MB</span>
-                        </div>
-                        <a href="https://www.dropbox.com/scl/fi/a5s4jskxp9ljjvokfm21f/Mood-Play.apk?rlkey=e7903r39sg1134eeylbbalq1e&st=jck2dlmv&dl=0"
-                            data-dropbox="https://dl.dropboxusercontent.com/scl/fi/a5s4jskxp9ljjvokfm21f/Mood-Play.apk?rlkey=e7903r39sg1134eeylbbalq1e&st=jck2dlmv&dl=1"
-                            target="_blank" class="download-link">
-                            <button class="download-btn" type="button">Download</button>
-                        </a>
-                    </div>
-                </div>
-            </li>
-        </ul>
+      <li>
+        <div class="item-container">
+          <div class="left">
+            <img class="img-item" src="/img/minecraft.png" alt="minecraft">
+          </div>
+          <div class="right">
+            <div class="file-info">
+              <span class="file-name">Minecraft PE</span>
+              <span class="file-desc">Version: 1.0.5 <br>Type: APK <br>Size: 58.6 MB</span>
+            </div>
+            <a href="https://www.dropbox.com/scl/fi/3elfw2amctmd9fzfqlhhp/Minecraft-PE-v1.0.5.apk?rlkey=usr9ep7mpic27aay0zb5lfrlj&st=40733ggj&dl=0"
+              data-dropbox="https://dl.dropboxusercontent.com/scl/fi/3elfw2amctmd9fzfqlhhp/Minecraft-PE-v1.0.5.apk?rlkey=usr9ep7mpic27aay0zb5lfrlj&st=40733ggj&dl=1"
+              target="_blank" class="download-link">
+              <button class="download-btn" type="button">Download</button>
+            </a>
+          </div>
+        </div>
+      </li>
 
-        <div id="downloadModal" style="display:none;"></div>
-    </main>
+      <li>
+        <div class="item-container">
+          <div class="left">
+            <img class="img-item" src="/img/mood-play.png" alt="mood-play">
+          </div>
+          <div class="right">
+            <div class="file-info">
+              <span class="file-name">Mood Play</span>
+              <span class="file-desc">Version: 3.0.0 <br>Type: APK <br>Size: 42.6 MB</span>
+            </div>
+            <a href="https://www.dropbox.com/scl/fi/a5s4jskxp9ljjvokfm21f/Mood-Play.apk?rlkey=e7903r39sg1134eeylbbalq1e&st=jck2dlmv&dl=0"
+              data-dropbox="https://dl.dropboxusercontent.com/scl/fi/a5s4jskxp9ljjvokfm21f/Mood-Play.apk?rlkey=e7903r39sg1134eeylbbalq1e&st=jck2dlmv&dl=1"
+              target="_blank" class="download-link">
+              <button class="download-btn" type="button">Download</button>
+            </a>
+          </div>
+        </div>
+      </li>
 
-    <footer>
-        <p style="text-align:center; color:#666; font-size:0.9rem;">
-            &copy; 2025 Tech Files Download Hub - MBDEV
-        </p>
-    </footer>
+      <li style="border-left: 1px solid #00ffe7;align-items: center;font-size: 16px;"> 
+        Próximamente nuevas apps y juegos...
+      </li>
 
-    <script>
-        // Personalizado: control de audio
-        const audio = document.getElementById('audio');
-        const playPauseBtn = document.getElementById('playPause');
-        const progress = document.getElementById('progress');
-        const currentTimeEl = document.getElementById('currentTime');
-        const durationEl = document.getElementById('duration');
+    </ul>
 
-        playPauseBtn.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                playPauseBtn.textContent = 'Ⅱ';
-            } else {
-                audio.pause();
-                playPauseBtn.textContent = '⊳';
-            }
-        });
+    <div id="downloadModal" style="display:none;"></div>
+  </main>
 
-        audio.addEventListener('loadedmetadata', () => {
-            durationEl.textContent = formatTime(audio.duration);
-            progress.max = audio.duration;
-        });
+  <footer>
+    <p style="text-align:center; color:#666; font-size:0.9rem;">
+      &copy; 2025 Tech Files Download Hub - MBDEV
+    </p>
+  </footer>
 
-        audio.addEventListener('timeupdate', () => {
-            progress.value = audio.currentTime;
-            currentTimeEl.textContent = formatTime(audio.currentTime);
-        });
+  <script src="/assets/js/main.js"></script>
+  </script>
 
-        progress.addEventListener('input', () => {
-            audio.currentTime = progress.value;
-        });
+  <style>
 
-        function formatTime(time) {
-            const minutes = Math.floor(time / 60);
-            const seconds = Math.floor(time % 60).toString().padStart(2, '0');
-            return `${minutes}:${seconds}`;
-        }
-
-        // Lógica de descarga con modal
-        document.querySelectorAll('.download-link').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const dropboxUrl = this.getAttribute('data-dropbox');
-                if (dropboxUrl) {
-                    showDownloadModal();
-                    window.location.href = dropboxUrl;
-                }
-            });
-        });
-
-        function showDownloadModal() {
-            const modal = document.createElement('div');
-            modal.id = 'confirmModal';
-            modal.innerHTML = `
-                <div class="confirm-modal-content">
-                    <div id="modal-icon" class="spinner"></div>
-                    <p id="modal-text">Iniciando descarga...</p>
-                </div>
-            `;
-            document.body.appendChild(modal);
-
-            setTimeout(() => {
-                document.getElementById('modal-icon').className = 'checkmark';
-                document.getElementById('modal-text').textContent = '¡Descarga iniciada!';
-            }, 2000);
-
-            setTimeout(() => {
-                modal.remove();
-            }, 3000);
-        }
-    </script>
-
-    <style>
-        #confirmModal {
-            position: fixed;
-            z-index: 2000;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.75);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .confirm-modal-content {
-            background: #181a1b;
-            color: #00ffe7;
-            padding: 2rem 3rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 8px 30px #000a;
-        }
-
-        .spinner {
-            border: 4px solid #333;
-            border-top: 4px solid #00ffe7;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem auto;
-        }
-
-        .checkmark {
-            font-size: 2.5rem;
-            color: #00ff88;
-            margin-bottom: 1rem;
-        }
-
-        .checkmark::before {
-            content: '✔️';
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+  </style>
 </body>
 
 </html>
