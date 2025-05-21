@@ -281,7 +281,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .checkmark {
     font-size: 2.5rem;
-    color: #00ff88;
+    color: #43a047;
     margin-bottom: 1rem;
 }
 
@@ -304,8 +304,16 @@ input[type="range"]::-webkit-slider-thumb {
     top: 0px;
     right: 20px;
     font-size: 32px;
-    color: #00ffe7;
+    color: #2196f3;
     cursor: pointer;
+    background: none;
+    border: none;
+    transition: color 0.2s;
+}
+
+.close:hover,
+.close:focus {
+    color: #1976d2;
 }
 
 /* Ocultar modal inicialmente */
