@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -67,14 +67,14 @@
         }
 
         .file-name {
-            font-size: 2rem;
+            font-size: 18px;
             font-weight: bold;
             color: #00ffe7;
             margin-bottom: 0.2rem;
         }
 
         .file-desc {
-            font-size: 0.8rem;
+            font-size: 12px;
             color: #aaa;
         }
 
@@ -180,6 +180,23 @@
             border-radius: 50%;
             cursor: pointer;
         }
+
+        .item-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .right {
+            width: 100%;
+        }
+
+        .img-item {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            margin-right: 30px;
+        }
     </style>
 </head>
 
@@ -212,26 +229,79 @@
     <main>
         <ul class="file-list">
             <li>
-                <div class="file-info">
-                    <span class="file-name">Deezer Premium</span>
-                    <span class="file-desc">Version: 7.0.5.56 | Type: APK | Size: 38.4 MB</span>
+                <div class="item-container">
+                    <div class="left">
+                        <img class="img-item" src="/img/deezer.png" alt="deezer">
+                    </div>
+                    <div class="right">
+                        <div class="file-info">
+                            <span class="file-name">Deezer Premium</span>
+                            <span class="file-desc">Version: 7.0.5.56 <br>Type: APK <br>Size: 38.4 MB</span>
+                        </div>
+                        <a href="https://www.mediafire.com/file/b1d5035uch5mcgm/Deezer_Premium_v7.0.5.56.apk/file"
+                            data-dropbox="https://dl.dropboxusercontent.com/scl/fi/oicfgin8pm5jlv5jaly8b/Deezer_Premium_v7.0.5.56.apk?rlkey=s326vh5lmndl8jg7on1di0c5y&st=wdjcaznn&dl=1"
+                            target="_blank" class="download-link">
+                            <button class="download-btn" type="button">Download</button>
+                        </a>
+                    </div>
                 </div>
-                <a href="https://www.mediafire.com/file/b1d5035uch5mcgm/Deezer_Premium_v7.0.5.56.apk/file"
-                    data-dropbox="https://dl.dropboxusercontent.com/scl/fi/oicfgin8pm5jlv5jaly8b/Deezer_Premium_v7.0.5.56.apk?rlkey=s326vh5lmndl8jg7on1di0c5y&st=wdjcaznn&dl=1"
-                    target="_blank" class="download-link">
-                    <button class="download-btn" type="button">Download</button>
-                </a>
             </li>
+
             <li>
-                <div class="file-info">
-                    <span class="file-name">Spotify Premium</span>
-                    <span class="file-desc">Version: 9.0.44.478 | Type: APK | Size: 117 MB</span>
+                <div class="item-container">
+                    <div class="left">
+                        <img class="img-item" src="/img/spotify.png" alt="spotify">
+                    </div>
+                    <div class="right">
+                        <div class="file-info">
+                            <span class="file-name">Spotify Premium</span>
+                            <span class="file-desc">Version: 9.0.44.478 <br>Type: APK <br>Size: 117 MB</span>
+                        </div>
+                        <a href="https://www.mediafire.com/file/hx6fa9cip5sp7ef/Spotify_Premium_v9.0.44.478.apk/file"
+                            data-dropbox="https://dl.dropboxusercontent.com/scl/fi/i7v6yt3ez8o87adiksztb/Spotify_Premium_v9.0.44.478.apk?rlkey=pwp75pdqbp4d055hahrbvsm0u&st=scoe0ptu&dl=1"
+                            target="_blank" class="download-link">
+                            <button class="download-btn" type="button">Download</button>
+                        </a>
+                    </div>
                 </div>
-                <a href="https://www.mediafire.com/file/hx6fa9cip5sp7ef/Spotify_Premium_v9.0.44.478.apk/file"
-                    data-dropbox="https://dl.dropboxusercontent.com/scl/fi/i7v6yt3ez8o87adiksztb/Spotify_Premium_v9.0.44.478.apk?rlkey=pwp75pdqbp4d055hahrbvsm0u&st=scoe0ptu&dl=1"
-                    target="_blank" class="download-link">
-                    <button class="download-btn" type="button">Download</button>
-                </a>
+            </li>
+
+            <li>
+                <div class="item-container">
+                    <div class="left">
+                        <img class="img-item" src="/img/minecraft.png" alt="minecraft">
+                    </div>
+                    <div class="right">
+                        <div class="file-info">
+                            <span class="file-name">Minecraft PE</span>
+                            <span class="file-desc">Version: 1.0.5 <br>Type: APK <br>Size: 58.6 MB</span>
+                        </div>
+                        <a href="https://www.dropbox.com/scl/fi/3elfw2amctmd9fzfqlhhp/Minecraft-PE-v1.0.5.apk?rlkey=usr9ep7mpic27aay0zb5lfrlj&st=40733ggj&dl=0"
+                            data-dropbox="https://dl.dropboxusercontent.com/scl/fi/3elfw2amctmd9fzfqlhhp/Minecraft-PE-v1.0.5.apk?rlkey=usr9ep7mpic27aay0zb5lfrlj&st=40733ggj&dl=1"
+                            target="_blank" class="download-link">
+                            <button class="download-btn" type="button">Download</button>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="item-container">
+                    <div class="left">
+                        <img class="img-item" src="/img/mood-play.png" alt="mood-play">
+                    </div>
+                    <div class="right">
+                        <div class="file-info">
+                            <span class="file-name">Mood Play</span>
+                            <span class="file-desc">Version: 3.0.0 <br>Type: APK <br>Size: 42.6 MB</span>
+                        </div>
+                        <a href="https://www.dropbox.com/scl/fi/a5s4jskxp9ljjvokfm21f/Mood-Play.apk?rlkey=e7903r39sg1134eeylbbalq1e&st=jck2dlmv&dl=0"
+                            data-dropbox="https://dl.dropboxusercontent.com/scl/fi/a5s4jskxp9ljjvokfm21f/Mood-Play.apk?rlkey=e7903r39sg1134eeylbbalq1e&st=jck2dlmv&dl=1"
+                            target="_blank" class="download-link">
+                            <button class="download-btn" type="button">Download</button>
+                        </a>
+                    </div>
+                </div>
             </li>
         </ul>
 
@@ -240,7 +310,7 @@
 
     <footer>
         <p style="text-align:center; color:#666; font-size:0.9rem;">
-            &copy; 2025 Tech Files Download Hub - MBDEV. All rights reserved.
+            &copy; 2025 Tech Files Download Hub - MBDEV
         </p>
     </footer>
 
